@@ -20,10 +20,12 @@ function TweetsPage() {
     return (
         <div>
             <h1>Tweets page</h1>
-            <ul>
-                <li>Tweets List</li>
-                <ul></ul>
-            </ul>
+            <h3>Tweets List</h3>
+            <ol>
+                {tweets.map((tweet) => (
+                    <li key={tweet.id}>{tweet.content}</li>
+                ))}
+            </ol>
         </div>
     )
 }
