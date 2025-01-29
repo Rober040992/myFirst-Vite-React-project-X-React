@@ -1,3 +1,4 @@
+import { clsx } from 'clsx'
 import './tweetsPage.css'
 
 const tweets = [
@@ -16,11 +17,14 @@ const tweets = [
         id: 2,
     },
 ]
+
+const green = true
+
 function TweetsPage() {
     return (
         <div>
-            <h1>Tweets page</h1>
-            <h3>Tweets List</h3>
+            <h1 className={clsx('TweetDiv', { green })}>Tweets page</h1>
+            <h3 className="ElH3"> List</h3>
             <ol>
                 {tweets.map((tweet) => (
                     <li key={tweet.id}>{tweet.content}</li>
