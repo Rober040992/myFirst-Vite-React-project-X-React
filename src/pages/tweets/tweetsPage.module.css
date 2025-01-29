@@ -1,0 +1,10 @@
+.TweetDiv {
+    background-color: rgb(49, 169, 169);
+}
+.TweetDiv.green {
+    background-color: rgb(34, 223, 34);
+}
+
+.ElH3 {
+    color: blue;
+}

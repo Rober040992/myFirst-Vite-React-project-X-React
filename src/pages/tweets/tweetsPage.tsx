@@ -1,5 +1,6 @@
 import { clsx } from 'clsx'
 import './tweetsPage.css'
+import styles from './tweetsPage.module.css'
 
 const tweets = [
     {
@@ -24,10 +25,13 @@ function TweetsPage() {
     return (
         <div>
             <h1 className={clsx('TweetDiv', { green })}>Tweets page</h1>
-            <h3 className="ElH3"> List</h3>
+            <h3 className={styles.ElH3}>The tweet List</h3>
             <ol>
                 {tweets.map((tweet) => (
-                    <li key={tweet.id}>{tweet.content}</li>
+                    <li key={tweet.id}>
+                        <br></br>
+                        {tweet.content}
+                    </li>
                 ))}
             </ol>
         </div>
