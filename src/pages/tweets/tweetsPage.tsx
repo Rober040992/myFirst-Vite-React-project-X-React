@@ -20,15 +20,21 @@ const tweets = [
 ]
 
 const green = true
+const tail = false
+const pepa = false
 
 function TweetsPage() {
     return (
         <div>
             <h1 className={clsx('TweetDiv', { green })}>Tweets page</h1>
-            <h3 className={styles.ElH3}>The tweet List</h3>
+            <h1 className={clsx("green", {pepa})}>Tweets page clsx test</h1>
+            <h3 className={styles.ElH3}>Modules.css</h3>
+            <h2 className='text-yellow-800 bg-green-600 p-3 '>Tailwind example</h2>
+            <h3 className={clsx("mixed", {tail})}>mix tailwind clsx</h3>
             <ol>
                 {tweets.map((tweet) => (
-                    <li key={tweet.id}>
+                    <li key={tweet.id}
+                    className='font-mono bg-blue-700 m-8'>
                         <br></br>
                         {tweet.content}
                     </li>
