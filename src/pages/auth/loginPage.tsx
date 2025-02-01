@@ -1,6 +1,10 @@
 import { login } from './service'
 
-function LoginPage() {
+interface Props { 
+    onLogin: ()=>void;
+}
+
+function LoginPage({ onLogin }: Props) { // {onLogin}: Props
     //aqui podriamos tipar la funcion pero es mejor tipar el arg.
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault() //preventDefault para que no haga por defecto el submit y no recargue la web
@@ -10,6 +14,7 @@ function LoginPage() {
                 password: event.target.password.value,
             })
             console.log(response)
+            onLogin()
         } catch (error) {
             console.error(error)
         }

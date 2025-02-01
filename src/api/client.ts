@@ -6,8 +6,7 @@ export const client = axios.create({
 })
 
 //interceptor para sacar data del objeto que la contiene , para su futuro uso
-//client.interceptors.response.use((response) => response.data)
-
+client.interceptors.response.use((response) => response.data)
 
 // configura el header de autorización en la instancia de Axios (client) 
 // para que todas las futuras peticiones incluyan el token de autenticación.
