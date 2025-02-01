@@ -1,8 +1,11 @@
-//import TweetsPage from './pages/tweets/tweetsPage'
+import { useState } from 'react'
 import LoginPage from "./pages/auth/loginPage"
+import TweetsPage from './pages/tweets/tweetsPage'
 
 function App() {
-    return <LoginPage />
+    const [isLogged, setIsLogged] = useState(false)
+
+    return isLogged ? <TweetsPage/> : <LoginPage/>
 }
 
 export default App
