@@ -17,16 +17,15 @@ function TweetsPage() {
     useEffect(() => {
         // Llamamos a `getLatestTweets`, que obtiene los tweets desde la API
         getLatestTweets().then((response) => {
-            console.log(response)
             // Cuando la petición se completa, actualizamos el estado con los tweets recibidos
             setTweets(response)
         })
     }, []) // La dependencia `[]` significa que solo se ejecuta una vez al montar el componente
 
     // prueba useState con boton
-    const [tail, changeTail] = useState(false)
+    const [tail, upadteTail] = useState(false)
     const handleCLick = () => {
-        changeTail((tail) => !tail) // invierte el valor actual de tail cada vez que se hace click
+        upadteTail((tail) => !tail) // invierte el valor actual de tail cada vez que se hace click
     }
     return (
         <>
@@ -43,9 +42,8 @@ function TweetsPage() {
                 </h2>
 
                 <div className="flex justify-around">
-                    <span>{tail}</span>
                     <button
-                        className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                         onClick={handleCLick}
                     >
                         Change BG-color

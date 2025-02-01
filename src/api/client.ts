@@ -6,4 +6,4 @@ export const client = axios.create({
 })
 
 //interceptor para sacar data del objeto que la contiene , para su futuro uso
-client.interceptors.response.use((response) => response.data)
+//client.interceptors.response.use((response) => response.data)

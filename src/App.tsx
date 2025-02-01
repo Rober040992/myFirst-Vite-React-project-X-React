@@ -1,6 +1,8 @@
-import TweetsPage from './pages/tweets/tweetsPage'
+//import TweetsPage from './pages/tweets/tweetsPage'
+import LoginPage from "./pages/auth/loginPage"
+
 function App() {
-    return <TweetsPage />
+    return <LoginPage />
 }
 
 export default App
