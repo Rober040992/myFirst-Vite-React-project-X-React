@@ -8,7 +8,11 @@ import './tweetsPage.css'
 const green = true
 const pepa = false
 
-function TweetsPage() {
+interface Props {
+    onLogout: () => void
+}
+
+function TweetsPage({ onLogout }: Props) {
     // Declaramos un estado `tweets` para almacenar los tweets obtenidos de la API
     // `setTweets` se usará para actualizar este estado
     const [tweets, setTweets] = useState<Tweet[]>([])
@@ -47,6 +51,12 @@ function TweetsPage() {
                         onClick={handleCLick}
                     >
                         Change BG-color
+                    </button>
+                    <button
+                        className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-200 to-lime-900 hover:bg-gradient-to-br shadow-lime-500/0 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        onClick={onLogout}
+                    >
+                        LogOut
                     </button>
                 </div>
 

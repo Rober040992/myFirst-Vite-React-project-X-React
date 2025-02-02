@@ -9,7 +9,14 @@ function App() {
     const handleLogin = () => {
         setIsLogged(true)
     }
-    return isLogged ? <TweetsPage /> : <LoginPage onLogin={handleLogin} />
+    const handleLogOut = () => {
+        setIsLogged(false)
+    }
+    return isLogged ? (
+        <TweetsPage onLogout={handleLogOut} />
+    ) : (
+        <LoginPage onLogin={handleLogin} />
+    )
 }
 
 export default App
