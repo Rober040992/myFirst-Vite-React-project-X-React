@@ -4,6 +4,7 @@ import styles from './tweetsPage.module.css'
 import { getLatestTweets } from './service'
 import { Tweet } from './types'
 import './tweetsPage.css'
+import { logout } from '../auth/service'
 
 const green = true
 const pepa = false
@@ -25,6 +26,11 @@ function TweetsPage({ onLogout }: Props) {
             setTweets(response)
         })
     }, []) // La dependencia `[]` significa que solo se ejecuta una vez al montar el componente
+
+    const handleLogoutClick = async () => {
+        await logout() //  esto me va a eliminar la cabecera
+        onLogout() // esto me va a cambiar el estado de mi App
+    }
 
     // prueba useState con boton
     const [tail, upadteTail] = useState(false)
@@ -54,7 +60,7 @@ function TweetsPage({ onLogout }: Props) {
                     </button>
                     <button
                         className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-200 to-lime-900 hover:bg-gradient-to-br shadow-lime-500/0 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                        onClick={onLogout}
+                        onClick={handleLogoutClick}
                     >
                         LogOut
                     </button>
