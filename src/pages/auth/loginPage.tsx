@@ -1,24 +1,36 @@
 import { login } from './service'
 
-interface Props { 
-    onLogin: ()=>void;
+interface Props {
+    onLogin: () => void
 }
 
-function LoginPage({ onLogin }: Props) { // {onLogin}: Props
+function LoginPage({ onLogin }: Props) {
+    // {onLogin}: Props
     //aqui podriamos tipar la funcion pero es mejor tipar el arg.
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault() //preventDefault para que no haga por defecto el submit y no recargue la web
         try {
-            const response = await login({
-                username: event.target.username.value,
-                password: event.target.password.value,
-            })
-            console.log(response)
+            //Este código extrae los valores de los campos de entrada (input) del formulario y los pasa a la función login().
+            const form = event.currentTarget as HTMLFormElement
+            const username = (
+                form.elements.namedItem('username') as HTMLInputElement
+            ).value
+            const password = (
+                form.elements.namedItem('password') as HTMLInputElement
+            ).value
+
+            const response = await login({ username, password })
+            console.log('desde login page', response)
             onLogin()
         } catch (error) {
             console.error(error)
         }
     }
+
+    const handleUsernameChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {}
+
     return (
         <div className="max-w-sm mx-auto">
             <h1>Login to Twitter</h1>
@@ -33,6 +45,7 @@ function LoginPage({ onLogin }: Props) { // {onLogin}: Props
                         type="text"
                         name="username"
                         className="border-2 border-blue-500 rounded-md p-1"
+                        onChange={handleUsernameChange}
                     />
                 </label>
                 <label className="p-1">
