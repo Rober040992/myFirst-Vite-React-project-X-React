@@ -2,9 +2,13 @@ import { useState } from 'react'
 import LoginPage from './pages/auth/loginPage'
 import TweetsPage from './pages/tweets/tweetsPage'
 
-function App() {
+interface Props {
+    defaultIsLogged: boolean
+}
+
+function App({ defaultIsLogged }: Props) {
     //App es el propietario del estado, y loginPage lo comunica hacia arriba(App) para que App haga el cambio de estado
-    const [isLogged, setIsLogged] = useState(false)
+    const [isLogged, setIsLogged] = useState(defaultIsLogged)
 
     const handleLogin = () => {
         setIsLogged(true)
